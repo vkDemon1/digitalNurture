@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 50px;
+  font-family: Arial, sans-serif;
+}
+
+.mystyle1 {
+  flex: 1;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.st2 {
+  flex: 1;
+  text-align: center;
+  padding: 0 20px;
+  border-left: 4px solid green;
+  border-right: 4px solid green;
+}
+
+.v1 {
+  flex: 1;
+  text-align: center;
+  padding: 0 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
