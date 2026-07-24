@@ -1,0 +1,35 @@
+# Git Configuration & Setup
+git version
+git config --global user.name "username"
+git config --global user.email "username@cognizant.com"
+git config --global --list
+
+# Editor Integration
+notepad++
+notepad++.exe bash -profile
+notepad++.exe .bash_profile
+git config --global core.editor "notepad++.exe -multiInst -nosession"
+git config --global -e
+
+# Repository Initialization & Navigation
+git init GitDemo
+cd GitDemo
+ls -al
+
+# File Creation & Tracking
+echo "Welcome to the version control" >> welcome.txt
+cat welcome.txt
+git status
+git add welcome.txt
+git commit
+
+# GitHub / Remote Syncing Commands
+git remote add origin https://github.com/yourusername/GitDemo.git
+git pull origin master
+git push origin master
+git push -u origin master
+
+# Optional GitHub README Documentation
+touch README.md
+git add README.md
+git commit -m "Added README to document Git commands"
