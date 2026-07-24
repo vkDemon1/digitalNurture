@@ -1,0 +1,7 @@
+cd GitDemo
+mkdir log
+touch error.log
+git status
+notepad++ .gitignore
+git add .gitignore
+git commit -m "Added .gitignore to ignore log files and folders"
