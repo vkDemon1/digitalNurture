@@ -1,0 +1,15 @@
+git branch GitNewBranch
+git branch -a
+git checkout GitNewBranch
+echo "This is my new branch feature" > feature.txt
+git add feature.txt
+git commit -m "Added feature.txt to GitNewBranch"
+git status
+git checkout master
+git diff master..GitNewBranch
+git difftool master..GitNewBranch
+git merge GitNewBranch
+git log --oneline --graph --decorate
+git branch -d GitNewBranch
+git status
+git push origin master
