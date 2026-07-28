@@ -1,0 +1,24 @@
+.ng-invalid.ng-touched {
+  border-color: red;
+  outline-color: red;
+}
+
+.ng-valid.ng-touched {
+  border-color: green;
+  outline-color: green;
+}
+
+.error-text {
+  color: red;
+  font-size: 0.85em;
+  display: block;
+}
+
+.success-box {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 15px;
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  margin-top: 15px;
+}

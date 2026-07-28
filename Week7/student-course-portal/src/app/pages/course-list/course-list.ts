@@ -1,27 +1,35 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Required for *ngFor and *ngIf
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common'; 
 import { CourseCard } from '../../components/course-card/course-card'; 
+import { HighlightDirective } from '../../directives/highlight';
+import { CourseService } from '../../services/course';
+import { Course } from '../../models/course.model';
 
 @Component({
   selector: 'app-course-list',
   standalone: true,
-  imports: [CommonModule, CourseCard], 
+  imports: [CommonModule, CourseCard, HighlightDirective], 
   templateUrl: './course-list.html',
   styleUrl: './course-list.css'
 })
-export class CourseList {
-  courses = [
-    { id: 1, name: 'Data Structures', code: 'CS101', credits: 4 },
-    { id: 2, name: 'Web Development', code: 'CS102', credits: 3 },
-    { id: 3, name: 'Database Systems', code: 'CS103', credits: 3 },
-    { id: 4, name: 'Machine Learning', code: 'CS104', credits: 4 },
-    { id: 5, name: 'Cybersecurity', code: 'CS105', credits: 3 }
-  ];
-
+export class CourseList implements OnInit {
+  isLoading = true;
   selectedCourseId: number | null = null;
+  
+  courses: Course[] = [];
+
+  constructor(private courseService: CourseService) {}
+
+  ngOnInit() {
+    this.courses = this.courseService.getCourses();
+    this.isLoading = false;
+  }
 
   onEnroll(courseId: number) {
-    console.log('Enrolling in course: ' + courseId);
     this.selectedCourseId = courseId;
+  }
+
+  trackByCourseId(index: number, course: Course): number {
+    return course.id;
   }
 }
