@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
-import { CourseService } from './course';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Course } from '../models/course.model';
+import { CourseService } from './course';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root'
+})
 export class EnrollmentService {
   private enrolledCourseIds: number[] = [];
 
@@ -20,8 +24,9 @@ export class EnrollmentService {
     return this.enrolledCourseIds.includes(courseId);
   }
 
-  getEnrolledCourses(): Course[] {
-    // Explicitly typed 'c' as Course
-    return this.courseService.getCourses().filter((c: Course) => this.enrolledCourseIds.includes(c.id));
+  getEnrolledCourses(): Observable<Course[]> {
+    return this.courseService.getCourses().pipe(
+      map((courses: Course[]) => courses.filter((c: Course) => this.enrolledCourseIds.includes(c.id)))
+    );
   }
 }
