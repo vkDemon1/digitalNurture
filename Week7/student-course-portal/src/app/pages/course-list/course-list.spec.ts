@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideMockStore } from '@ngrx/store/testing';
 import { CourseList } from './course-list';
 
 describe('CourseList', () => {
@@ -9,6 +9,17 @@ describe('CourseList', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [CourseList],
+      providers: [
+        provideMockStore({
+          initialState: {
+            course: {
+              courses: [],
+              loading: false,
+              error: null
+            }
+          }
+        })
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(CourseList);

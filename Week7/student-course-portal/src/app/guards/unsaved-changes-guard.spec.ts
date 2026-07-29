@@ -4,7 +4,7 @@ import { CanDeactivateFn } from '@angular/router';
 import { unsavedChangesGuard } from './unsaved-changes-guard';
 
 describe('unsavedChangesGuard', () => {
-  const executeGuard: CanDeactivateFn<unknown> = (...guardParameters) =>
+  const executeGuard: CanDeactivateFn<any> = (...guardParameters) =>
     TestBed.runInInjectionContext(() => unsavedChangesGuard(...guardParameters));
 
   beforeEach(() => {
